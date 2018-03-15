@@ -10,23 +10,25 @@ In this video we are talking about the benefits and possible usage scenarios of 
 
 In this video we are implementing simple asynchronous web services.
 
-| Method | URI | Status | Description |
-|--------|-----|--------|-------------|
-| GET    | /api/events | 200 | Register and get the stream of SSE |
+| Method  | URI | Media Type | Description |
+|---------|-----|--------|-------------|
+| GET     | /api/events  | text/event-stream | Get and open the SSE stream to receive push events |
+| POST    | /api/events  | */* | Post any message to be pushed to an open SSE stream |
+| DELETE  | /api/events  | */* | Close any open SSE event stream |
 
 ### Video 5.3: Implementing SSE REST clients
 
-In this video we are showing how to implement an REST client received SSE.
+In this video we are showing how to implement a JAX-RS REST client sending and receiving SSE.
 
 ### Video 5.4: Implementing and sending SSE broadcasts
 
 In this video is showing how to subscribe and broadcast SSE events to all registered clients.
 to calculate Fibonacci numbers async.
 
-| Method | URI | Status | Description |
+| Method | URI | Media Type | Description |
 |--------|-----|--------|-------------|
-| GET    | /api/broadcast | 200 | Get the stream of broadcasted SSE |
-| POST    | /api/broadcast | 200 | Send a broadcast message |
+| GET    | /api/broadcast | text/event-stream | Get and open the SSE stream of broadcasted messages |
+| POST   | /api/broadcast | application/x-www-form-urlencoded | Send a broadcast message |
 
 
 ## Building and Running
