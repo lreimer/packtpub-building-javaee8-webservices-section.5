@@ -23,7 +23,6 @@ In this video we are showing how to implement a JAX-RS REST client sending and r
 ### Video 5.4: Implementing and sending SSE broadcasts
 
 In this video is showing how to subscribe and broadcast SSE events to all registered clients.
-to calculate Fibonacci numbers async.
 
 | Method | URI | Media Type | Description |
 |--------|-----|--------|-------------|
