@@ -1,7 +1,5 @@
 package com.packtpub.javaee8;
 
-import javax.annotation.Resource;
-import javax.enterprise.concurrent.ManagedScheduledExecutorService;
 import javax.enterprise.context.ApplicationScoped;
 import javax.json.bind.annotation.JsonbPropertyOrder;
 import javax.ws.rs.*;
@@ -16,9 +14,6 @@ import java.time.LocalDateTime;
 @ApplicationScoped
 @Path("events")
 public class EventsResource {
-
-    @Resource
-    private ManagedScheduledExecutorService executorService;
 
     private volatile SseEventSink eventSink;
 
