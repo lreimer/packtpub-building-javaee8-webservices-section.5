@@ -34,6 +34,31 @@
 			"response": []
 		},
 		{
+			"name": "POST a message to Server-sent events",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "Hello SSE events!"
+				},
+				"url": {
+					"raw": "http://localhost:8080/sse-service/api/events",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"sse-service",
+						"api",
+						"events"
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "DELETE and close SSE",
 			"request": {
 				"method": "DELETE",
@@ -59,16 +84,28 @@
 			"response": []
 		},
 		{
-			"name": "POST a message to Server-sent events",
+			"name": "POST a SSE broadcast to all browsers",
 			"request": {
 				"method": "POST",
-				"header": [],
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded"
+					}
+				],
 				"body": {
-					"mode": "raw",
-					"raw": "Hello SSE events!"
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "message",
+							"value": "Hello SSE broadcast from Postman.",
+							"description": "",
+							"type": "text"
+						}
+					]
 				},
 				"url": {
-					"raw": "http://localhost:8080/sse-service/api/events",
+					"raw": "http://localhost:8080/sse-service/api/broadcast",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -77,7 +114,7 @@
 					"path": [
 						"sse-service",
 						"api",
-						"events"
+						"broadcast"
 					]
 				}
 			},
