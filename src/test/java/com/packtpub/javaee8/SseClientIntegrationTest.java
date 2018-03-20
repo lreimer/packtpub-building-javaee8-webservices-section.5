@@ -30,12 +30,13 @@ public class SseClientIntegrationTest {
 
     @Before
     public void setUp() {
+        executorService = Executors.newSingleThreadScheduledExecutor();
+
         client = ClientBuilder.newBuilder()
                 .connectTimeout(5, TimeUnit.SECONDS).readTimeout(30, TimeUnit.SECONDS)
                 .build();
 
-        webTarget = client.target("http://localhost:8080").path("/sse-service/api/events");
-        executorService = Executors.newSingleThreadScheduledExecutor();
+        // TODO open webtarget
     }
 
     @After
@@ -47,16 +48,9 @@ public class SseClientIntegrationTest {
     @Test
     public void receiveSse() throws Exception {
 
-        executorService.scheduleWithFixedDelay(() -> {
-            webTarget.request().post(Entity.entity("Hello SSE JAX-RS client.", MediaType.TEXT_PLAIN_TYPE));
-        }, 250, 500, TimeUnit.MILLISECONDS);
+        // TODO sending post events every 500ms
 
-        try (SseEventSource eventSource = SseEventSource.target(webTarget).build()) {
-            eventSource.register((e) -> LOGGER.log(Level.INFO, "Recieved event {0} with data {1}.",
-                    new Object[]{e.getName(), e.readData()}));
-            eventSource.open();
+        // TODO build SSE event source and register for events
 
-            TimeUnit.SECONDS.sleep(3);
-        }
     }
 }

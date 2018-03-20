@@ -20,24 +20,14 @@
 
 <script>
     if (typeof(EventSource) !== "undefined") {
-        var source = new EventSource("http://localhost:8080/sse-service/api/events");
-        source.onmessage = function (event) {
-            document.getElementById("messages").innerHTML += event.data + "<br>";
-        };
+        // TODO open EvenSource
 
-        source.addEventListener("stringEvent", function (e) {
-            document.getElementById("stringEvents").innerHTML += e.data + "<br>";
-        }, false);
+        // Implement onmessage function
 
-        source.addEventListener("primitiveEvent", function (e) {
-            document.getElementById("primitiveEvents").innerHTML += e.data + "<br>";
-        }, false);
+        // implement addEventListeners
 
-        source.addEventListener("jsonbEvent", function (e) {
-            document.getElementById("jsonbEvents").innerHTML += e.data + "<br>";
-        }, false);
     } else {
-        document.getElementById("jsonbEvents").innerHTML = "Sorry, your browser does not support server-sent events...";
+        document.getElementById("messages").innerHTML = "Sorry, your browser does not support server-sent events...";
     }
 </script>
 </body>
