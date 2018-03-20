@@ -6,10 +6,7 @@
 </head>
 <body>
 
-<form action="/sse-service/api/broadcast" method="post">
-    Message <input type="text" name="message"/>
-    <input type="submit" value="Submit"/>
-</form>
+<!-- TODO add POST form -->
 
 <h2>Chat messages</h2>
 <div id="messages"></div>

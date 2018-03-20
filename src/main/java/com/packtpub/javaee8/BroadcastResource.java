@@ -15,26 +15,12 @@ import javax.ws.rs.sse.SseEventSink;
 @Path("broadcast")
 public class BroadcastResource {
 
-    @Context
-    private Sse sse;
-    private SseBroadcaster sseBroadcaster;
+    // TODO inject SSE context
 
-    @PostConstruct
-    public void initialize() {
-        sseBroadcaster = sse.newBroadcaster();
-    }
+    // TODO initialize new SSE broadcaster
 
-    @GET
-    @Produces(MediaType.SERVER_SENT_EVENTS)
-    public void fetch(@Context SseEventSink sseEventSink) {
-        sseBroadcaster.register(sseEventSink);
-    }
+    // TODO register event sink with broadcaster
 
-    @POST
-    @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
-    public Response broadcast(@FormParam("message") String message) {
-        OutboundSseEvent broadcastEvent = sse.newEvent("message", message);
-        sseBroadcaster.broadcast(broadcastEvent);
-        return Response.noContent().build();
-    }
+    // TODO broadcast message as SSE event
+
 }
